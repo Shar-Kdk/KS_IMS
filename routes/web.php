@@ -66,6 +66,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/delivered-orders',[OrderController::class,'deliveredOrders'])->name('delivered.orders');
     Route::get('/new-order', [OrderController::class,'newformData'])->name('new.order');
     Route::post('/insert-new-order',[OrderController::class,'newStore'])->name('new.order.store');
+    Route::put('/order/{id}/status', [OrderController::class,'updateStatus'])->name('order.update.status');
+    Route::delete('/order/{id}', [OrderController::class,'destroy'])->name('order.destroy');
 });
 
 
