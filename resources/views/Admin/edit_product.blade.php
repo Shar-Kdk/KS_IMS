@@ -7,16 +7,17 @@
             <!-- Page Header -->
             <div class="mb-4">
                 <h1 class="h3" style="color: #2d3748;">
-                    <i class="fas fa-plus-circle" style="color: var(--primary-color);"></i> Add New Product
+                    <i class="fas fa-edit" style="color: var(--primary-color);"></i> Edit Product
                 </h1>
-                <p style="color: #718096;">Create a new product in your inventory</p>
+                <p style="color: #718096;">Update product information</p>
             </div>
 
-            <!-- Add Product Form -->
+            <!-- Edit Product Form -->
             <div class="card" style="border: none; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
                 <div class="card-body" style="padding: 30px;">
-                    <form action="{{ route('product.store') }}" method="POST" class="needs-validation" novalidate>
+                    <form action="{{ route('product.update', $product->id) }}" method="POST" class="needs-validation" novalidate>
                         @csrf
+                        @method('PUT')
 
                         <div class="row mb-4">
                             <!-- Product Code -->
@@ -29,7 +30,7 @@
                                     class="form-control @error('code') is-invalid @enderror" 
                                     id="code" 
                                     name="code"
-                                    value="{{ old('code') }}"
+                                    value="{{ old('code', $product->product_code) }}"
                                     placeholder="e.g., PRD001"
                                     style="border-radius: 8px; padding: 12px 15px; border: 2px solid #e2e8f0;"
                                     required
@@ -49,7 +50,7 @@
                                     class="form-control @error('name') is-invalid @enderror" 
                                     id="name" 
                                     name="name"
-                                    value="{{ old('name') }}"
+                                    value="{{ old('name', $product->name) }}"
                                     placeholder="Enter product name"
                                     style="border-radius: 8px; padding: 12px 15px; border: 2px solid #e2e8f0;"
                                     required
@@ -71,7 +72,7 @@
                                     class="form-control @error('category') is-invalid @enderror" 
                                     id="category" 
                                     name="category"
-                                    value="{{ old('category') }}"
+                                    value="{{ old('category', $product->category) }}"
                                     placeholder="e.g., Electronics"
                                     style="border-radius: 8px; padding: 12px 15px; border: 2px solid #e2e8f0;"
                                     required
@@ -91,7 +92,7 @@
                                     class="form-control @error('stock') is-invalid @enderror" 
                                     id="stock" 
                                     name="stock"
-                                    value="{{ old('stock', 0) }}"
+                                    value="{{ old('stock', $product->stock) }}"
                                     min="0"
                                     placeholder="0"
                                     style="border-radius: 8px; padding: 12px 15px; border: 2px solid #e2e8f0;"
@@ -116,7 +117,7 @@
                                         class="form-control @error('unit_price') is-invalid @enderror" 
                                         id="unit_price" 
                                         name="unit_price"
-                                        value="{{ old('unit_price') }}"
+                                        value="{{ old('unit_price', $product->unit_price) }}"
                                         step="0.01"
                                         min="0"
                                         placeholder="0.00"
@@ -141,7 +142,7 @@
                                         class="form-control @error('sale_price') is-invalid @enderror" 
                                         id="sale_price" 
                                         name="sale_price"
-                                        value="{{ old('sale_price') }}"
+                                        value="{{ old('sale_price', $product->sales_unit_price) }}"
                                         step="0.01"
                                         min="0"
                                         placeholder="0.00"
@@ -158,7 +159,7 @@
                         <!-- Form Actions -->
                         <div class="d-flex gap-3 mt-5">
                             <button type="submit" class="btn btn-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; flex: 1; font-weight: 600; padding: 12px 20px;">
-                                <i class="fas fa-save"></i> Add Product
+                                <i class="fas fa-save"></i> Update Product
                             </button>
                             <a href="{{ route('all.product') }}" class="btn btn-lg" style="background: #f0f0f0; color: #2d3748; border: none; border-radius: 8px; flex: 1; font-weight: 600; padding: 12px 20px;">
                                 <i class="fas fa-times-circle"></i> Cancel
