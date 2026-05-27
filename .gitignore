@@ -1,0 +1,70 @@
+# Laravel Framework
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
+/storage/*.key
+/bootstrap/cache/
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/cache/*
+!/storage/framework/cache/.gitkeep
+
+# Environment Configuration
+.env
+.env.backup
+.env.*.backup
+.env.local
+.env.*.local
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+.phpunit.result.cache
+/tests/coverage/
+coverage.xml
+
+# Development & Deployment
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+
+# Package managers
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+composer.lock
+
+# Database files
+*.sqlite
+*.sqlite-journal
+database.sqlite
+
+# Build artifacts
+/public/mix-manifest.json
+/public/js/app.js
+/public/css/app.css
+
+# Temporary & OS files
+*.tmp
+*.temp
+*.bak
+.DS_Store
+
+# Local development
+.env.local
+local.ini
